@@ -1,0 +1,8 @@
+---
+collections:
+  - amazon.aws
+  - ansible.windows
+  - azure.azcollection
+  - containers.podman
+  - kubernetes.core
+  - microsoft.ad

@@ -1,0 +1,21 @@
+---
+version: 1
+build_arg_defaults:
+  EE_BASE_IMAGE: quay.io/ansible/ansible-runner:latest
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+additional_build_steps:
+  prepend:
+    - RUN dnf update -y
+    - RUN dnf install -y yum-utils
+    - RUN pip install --upgrade pip setuptools wheel
+  append:
+    - RUN set -ex && /output/install-from-bindep && rm -rf /output/wheels
+    - RUN alternatives --set python /usr/bin/python3
+    - RUN dnf -y upgrade
+    - RUN dnf autoremove
+    - USER 1000
+    - ADD run.sh /run.sh
+    - CMD /run.sh

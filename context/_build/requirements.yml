@@ -1,0 +1,12 @@
+---
+collections:
+  - awx.awx
+  - amazon.aws
+  - ansible.posix
+  - ansible.windows
+  - azure.azcollection
+  - infra.controller_configuration
+  - redhat_cop.controller_configuration
+  - containers.podman
+  - kubernetes.core
+  - microsoft.ad
